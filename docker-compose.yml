@@ -86,10 +86,12 @@ services:
     build: ./web
     image: monica-web
     restart: always
+    env_file:
+      - ./.env
     environment:
-      - VIRTUAL_HOST=
-      - LETSENCRYPT_HOST=
-      - LETSENCRYPT_EMAIL=
+      - VIRTUAL_HOST=${VIRTUAL_HOST}
+      - LETSENCRYPT_HOST=${LETSENCRYPT_HOST}
+      - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL}
     volumes:
       - data:/var/www/html/storage:ro
     depends_on:
