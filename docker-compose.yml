@@ -26,8 +26,8 @@ services:
     env_file: .env
     environment:
       - DB_HOST=db
-      - DB_USERNAME=monica
-      - DB_PASSWORD=secret
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
       - DEFAULT_MAX_UPLOAD_SIZE=${DEFAULT_MAX_UPLOAD_SIZE}
     volumes:
       - data:/var/www/html/storage
@@ -41,8 +41,8 @@ services:
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=true
       - MYSQL_DATABASE=monica
-      - MYSQL_USER=monica
-      - MYSQL_PASSWORD=secret
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
     volumes:
       - mysql:/var/lib/mysql
     restart: always
@@ -57,8 +57,8 @@ services:
     env_file: .env
     environment:
       - DB_HOST=db
-      - DB_USERNAME=monica
-      - DB_PASSWORD=secret
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
     restart: always
     volumes:
       - data:/var/www/html/storage
@@ -73,8 +73,8 @@ services:
     env_file: .env
     environment:
       - DB_HOST=db
-      - DB_USERNAME=monica
-      - DB_PASSWORD=secret
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
     restart: always
     volumes:
       - data:/var/www/html/storage
